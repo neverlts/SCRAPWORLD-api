@@ -10,6 +10,7 @@ export interface Database {
           xp: number
           level: number
           scrap: number
+          created_at?: string
         }
         Insert: {
           id?: string
@@ -17,6 +18,7 @@ export interface Database {
           xp?: number
           level?: number
           scrap?: number
+          created_at?: string
         }
         Update: {
           id?: string
@@ -24,26 +26,30 @@ export interface Database {
           xp?: number
           level?: number
           scrap?: number
+          created_at?: string
         }
       }
       items: {
         Row: {
           id: string
           name: string
-          type: string
           image_url: string
+          attributes: Json
+          created_at?: string
         }
         Insert: {
           id?: string
           name: string
-          type: string
           image_url: string
+          attributes: Json
+          created_at?: string
         }
         Update: {
           id?: string
           name?: string
-          type?: string
           image_url?: string
+          attributes?: Json
+          created_at?: string
         }
       }
       staking: {
@@ -52,18 +58,21 @@ export interface Database {
           user_id: string
           amount: number
           start_date: string
+          created_at?: string
         }
         Insert: {
           id?: string
           user_id: string
           amount: number
           start_date?: string
+          created_at?: string
         }
         Update: {
           id?: string
           user_id?: string
           amount?: number
           start_date?: string
+          created_at?: string
         }
       }
       quests: {
@@ -71,59 +80,77 @@ export interface Database {
           id: string
           name: string
           description: string
-          reward: Json
+          rewards: Json
+          requirements: Json
+          created_at?: string
         }
         Insert: {
           id?: string
           name: string
           description: string
-          reward: Json
+          rewards: Json
+          requirements: Json
+          created_at?: string
         }
         Update: {
           id?: string
           name?: string
           description?: string
-          reward?: Json
+          rewards?: Json
+          requirements?: Json
+          created_at?: string
         }
       }
       user_quest: {
         Row: {
           user_id: string
           quest_id: string
-          completed_at: string
+          status: string
+          progress: Json
+          completed_at?: string
+          created_at?: string
         }
         Insert: {
           user_id: string
           quest_id: string
+          status: string
+          progress?: Json
           completed_at?: string
+          created_at?: string
         }
         Update: {
           user_id?: string
           quest_id?: string
+          status?: string
+          progress?: Json
           completed_at?: string
+          created_at?: string
         }
       }
       fusion_logs: {
         Row: {
           id: string
           user_id: string
-          token_id: string
-          sticker_id: string
-          date: string
+          nft1_id: string
+          nft2_id: string
+          result_nft_id: string
+          created_at?: string
         }
         Insert: {
           id?: string
           user_id: string
-          token_id: string
-          sticker_id: string
-          date?: string
+          nft1_id: string
+          nft2_id: string
+          result_nft_id: string
+          created_at?: string
         }
         Update: {
           id?: string
           user_id?: string
-          token_id?: string
-          sticker_id?: string
-          date?: string
+          nft1_id?: string
+          nft2_id?: string
+          result_nft_id?: string
+          created_at?: string
         }
       }
       tokens: {
@@ -133,6 +160,7 @@ export interface Database {
           image_url: string
           attributes: Json
           owner_id: string
+          created_at?: string
         }
         Insert: {
           id?: string
@@ -140,6 +168,7 @@ export interface Database {
           image_url: string
           attributes: Json
           owner_id: string
+          created_at?: string
         }
         Update: {
           id?: string
@@ -147,43 +176,7 @@ export interface Database {
           image_url?: string
           attributes?: Json
           owner_id?: string
-        }
-      }
-      user_items: {
-        Row: {
-          user_id: string
-          item_id: string
-          quantity: number
-        }
-        Insert: {
-          user_id: string
-          item_id: string
-          quantity: number
-        }
-        Update: {
-          user_id?: string
-          item_id?: string
-          quantity?: number
-        }
-      }
-      boosters: {
-        Row: {
-          id: string
-          user_id: string
-          type: string
-          opened: boolean
-        }
-        Insert: {
-          id?: string
-          user_id: string
-          type: string
-          opened?: boolean
-        }
-        Update: {
-          id?: string
-          user_id?: string
-          type?: string
-          opened?: boolean
+          created_at?: string
         }
       }
     }
